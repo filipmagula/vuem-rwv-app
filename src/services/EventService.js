@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-  baseURL: 'https://my-json-server.typicode.com/filipmagula/vuem-rwv-db',
+  baseURL: 'http://localhost:1337/',
   withCredentials: false,
   headers: {
     Accept: 'application/json',
@@ -10,10 +10,13 @@ const apiClient = axios.create({
 })
 
 export default {
-  getEvents() {
-    return apiClient.get('/events')
+  getProjects() {
+    return apiClient.get('/projects')
   },
-  getEvent(id) {
-    return apiClient.get('/events/' + id)
+  getProject(id) {
+    return apiClient.get('/projects/' + id)
+  },
+  deleteProject(id) {
+    return apiClient.delete('/projects/' + id)
   }
 }
